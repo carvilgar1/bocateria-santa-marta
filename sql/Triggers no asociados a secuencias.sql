@@ -1,0 +1,79 @@
+/* TRIGGERS NO ASOCIADOS A LA GESTIÓN DE SECUENCIAS */
+
+-- TR_FECHA_RECOGIDA               -- La fecha de encargo del pedido debe situarse en un dia laborable y dentro del horario permitido (09:00-12:00)
+-- TR_NUMERO_PEDIDO                -- Por usuario solo puede realizar un pedido por día. Solo puede contener un producto o un menú o los dos juntos (menú y producto juntos)
+-- TR_NICKNAME_DUPLICADO           -- No se pueden repetir los nicknames
+--TR_CORREO_DUPLICADO              -- No se pueden repetir los correos electronicos
+
+CREATE OR REPLACE TRIGGER TR_FECHA_RECOGIDA
+BEFORE INSERT OR UPDATE ON PEDIDOS
+FOR EACH ROW
+DECLARE
+    DIA INTEGER;
+    HORA DATE;
+    HORA_INICIO DATE;
+    HORA_FIN DATE;
+BEGIN
+    SELECT DIA_DE_LA_SEMANA(:NEW.FECHA_RECOGIDA) INTO DIA FROM DUAL;
+    IF(DIA = 6 OR DIA = 7) THEN
+        RAISE_APPLICATION_ERROR(-20020, :NEW.FECHA_RECOGIDA|| ' Los dias de la semana en los que se pueden realizar pedidos deben estar entre lunes y viernes incluidos');
+    END IF;
+    
+    HORA_INICIO := TO_DATE(TO_CHAR(SYSDATE,'DD-MM-YY')||' 09:00:00','DD-MM-YY hh24:mi:ss');
+    HORA_FIN := TO_DATE(TO_CHAR(SYSDATE,'DD-MM-YY')||' 12:00:00','DD-MM-YY hh24:mi:ss');
+    HORA := TO_DATE(TO_CHAR(SYSDATE,'DD-MM-YY')||' '||TO_CHAR(:NEW.FECHA_RECOGIDA,'hh24:mi:ss'),'DD-MM-YY hh24:mi:ss');
+    
+    IF(HORA < HORA_INICIO OR HORA > HORA_FIN) THEN
+        RAISE_APPLICATION_ERROR(-20000, TO_CHAR(:NEW.FECHA_RECOGIDA,'DD-MM-YY hh24:mi:ss')|| ' se encuentra fuera del horario de recogida');
+    END IF;
+END;
+
+/
+
+
+CREATE OR REPLACE TRIGGER TR_NUMERO_PEDIDO
+BEFORE INSERT OR UPDATE ON PEDIDOS
+FOR EACH ROW
+
+DECLARE W NUMBER;
+
+BEGIN
+	SELECT COUNT(*) INTO W FROM PEDIDOS WHERE NICKNAME_USUARIO=:NEW.NICKNAME_USUARIO;
+	IF ( W > 0)
+		THEN RAISE_APPLICATION_ERROR (-20600, :NEW.NICKNAME_USUARIO || ' SOLO PUEDE HABER UN PEDIDO POR CADA USUARIO');
+    END IF;
+END;
+
+/
+
+CREATE OR REPLACE TRIGGER TR_NICKNAME_DUPLICADO
+BEFORE INSERT OR UPDATE ON USUARIOS
+FOR EACH ROW
+
+DECLARE CONTADOR INTEGER;
+
+BEGIN
+    SELECT * INTO CONTADOR FROM
+        (SELECT COUNT(ROWNUM) FROM USUARIOS U WHERE U.NICKNAME_USUARIO = :NEW.NICKNAME_USUARIO);
+    IF(CONTADOR = 1) THEN
+        RAISE_APPLICATION_ERROR (-20003, :NEW.NICKNAME_USUARIO || ' El nickname que ha elegido ya existe. Por favor, utilice otro');
+    END IF;
+END;
+
+/
+
+CREATE OR REPLACE TRIGGER TR_CORREO_DUPLICADO
+BEFORE INSERT OR UPDATE ON USUARIOS
+FOR EACH ROW
+
+DECLARE CONTADOR INTEGER;
+
+BEGIN
+    SELECT * INTO CONTADOR FROM
+        (SELECT COUNT(ROWNUM) FROM USUARIOS U WHERE U.CORREO_ELECTRONICO = :NEW.CORREO_ELECTRONICO);
+    IF(CONTADOR = 1) THEN
+        RAISE_APPLICATION_ERROR (-20003, ' El correo que ha elegido ya existe. Por favor, utilice otro');
+    END IF;
+END;
+
+/

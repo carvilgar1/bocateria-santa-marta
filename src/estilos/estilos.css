@@ -1,0 +1,326 @@
+* {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Righteous', cursive;
+        }
+        
+        header{
+            background-color: #FFFFF6;
+        }
+        
+        body{
+            background-color: #b6d7a8;
+        }
+        
+        .container::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+		
+		[class*="comentario"]{
+			border-radius: 20px;
+			border: 4px solid #f5b129;
+			background-color: #FFFFF6;
+			padding: 20px;
+		}
+        
+        [class*="info"] {
+            text-align: center;
+        }
+        
+        .header{
+            text-align:center;
+        }
+        
+        .logo{
+            width: 130px; 
+        }
+        
+        .logo_cont{
+            display: inline-block;
+        }
+        
+        .navegador{
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .navegador a{
+            text-decoration: none;
+            font-size: 150%;
+            color: black;
+            border-bottom: 3px solid grey;
+            margin-right: 50px;
+        }
+        
+        .navegador a:hover{
+            border-bottom: 3px solid green;
+        }
+        
+        .banner_padre{
+            display: table;
+            width: 100%;
+            height: 830px;
+            background-image: url(banner.png);
+        }
+    
+        .banner_hijo{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            color: white;
+            font-family: 'Righteous', cursive;
+            font-size: 380%;
+        }
+        
+        .aside{
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .cartel{
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .galeria{
+            margin-top: 100px;
+    }
+    
+    .galeria .foto{
+        -webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+    }
+        
+    .anterior{
+        margin-top: 30px;
+        float: left;
+    }
+    
+    .siguiente{
+        margin-top: 30px;
+        float: right;
+    }
+    
+    .back{
+        width: 50%;
+        height: 50%;
+    }
+    
+    .next{
+        width: 50%;
+        height: 50%;
+    }
+        
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+            /* For tablets: */
+            .col-s-1 {width: 8.33%;}
+            .col-s-2 {width: 16.66%;}
+            .col-s-3 {width: 25%;}
+            .col-s-4 {width: 33.33%;}
+            .col-s-5 {width: 41.66%;}
+            .col-s-6 {width: 50%;}
+            .col-s-7 {width: 58.33%;}
+            .col-s-8 {width: 66.66%;}
+            .col-s-9 {width: 75%;}
+            .col-s-10 {width: 83.33%;}
+            .col-s-11 {width: 91.66%;}
+            .col-s-12 {width: 100%;}
+        }
+        @media only screen and (min-width: 768px) {
+            /* For desktop: */
+            .col-1 {width: 8.33%;}
+            .col-2 {width: 16.66%;}
+            .col-3 {width: 25%;}
+            .col-4 {width: 33.33%;}
+            .col-5 {width: 41.66%;}
+            .col-6 {width: 50%;}
+            .col-7 {width: 58.33%;}
+            .col-8 {width: 66.66%;}
+            .col-9 {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+			.altura_maxima {height : 100vh;}
+        }
+		
+		.insertar_comentario{
+			text-align: center;
+			border-radius: 20px;
+			border: 4px solid #f5b129;
+			background-color: #FFFFF6;
+			padding: 20px;
+		}
+		
+		.menu_per{
+        background-color: #365c23;
+    }
+    
+    .menu_per ul li{
+        padding: 20px 0px;
+        padding-left: 10px;
+        border-bottom: 2px solid #b6d7a8;
+		list-style-type: none; 
+    }
+    
+    .menu_per ul li:hover{
+        border-right: 5px solid white;
+    }
+    
+    .menu_per ul a{
+        font-family: 'Righteous', cursive;
+        text-decoration: none;
+        color: white; 
+        font-size: 110%;
+    }
+	
+	.info_perfil{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	
+	.nombre{
+		background-color: #FFFFF6;
+	}
+	
+	.apellidos{
+		background-color: #F1F1CF;
+	}
+	
+	.dni{
+		background-color: #E7E7BE;
+	}
+	
+	.nick{
+		background-color: #D8D8A5;
+	}
+	
+	.correo{
+		background-color: #C6C688;
+	}
+	
+	.telefono{
+		background-color: #B2B273;
+	}
+	
+	.whatsapp{
+		background-color: #A0A05F;
+	}
+	
+	.titulo{
+		padding 40px 40px;
+		text-align: center;
+	}
+	
+	fieldset{
+		background-color: #FFFFF6;
+		border-radius: 20px;
+		padding: 5px ;
+		border: 3px solid #f5b129;
+	}
+	
+	legend{
+		font-size: 150%;
+	}
+	
+	.datos{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+	
+	
+	.value{
+		text-align: center;
+		background-color : #FFFFF6;
+		border: 1px solid black;
+		padding: 3px;
+		color: black;
+	}
+	
+	.value a{
+		text-decoration: none;
+	}
+	
+	.title{
+		text-align: center;
+		background-color : #E7E7BE;
+		border: 1px solid black;
+		padding: 3px;
+	}
+	
+	.info{
+        font-family: 'Righteous', cursive;
+        color: #365c23;
+        text-align: center;
+    }
+    
+    .telefono_contacto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
+    }
+    
+    .container_log{
+        text-align:center;
+        
+    }
+    
+    .login{
+        margin:30px auto;
+        padding-bottom: 20px;
+        border: 3px solid #365c23;
+        background-color: #F7FAF7;
+        width: 700px;
+    }
+    
+    form input{
+        font-family: 'Righteous', cursive;
+        border-radius: 15px; 
+        border: 1px solid #D4D4D4;
+        padding: 10px 5px;
+        margin-top: 10px;
+        font-size: 100%;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+	       -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+
+    }
+
+    form label{
+        font-size: 180%;
+        font-family: 'Righteous', cursive;
+        color: #365c23;
+    } 
+	
+	.registro{
+        text-align: center;
+    }
+    
+    .formas{
+        margin:30px auto;
+        padding-bottom: 20px;
+        border: 3px solid #365c23;
+        background-color: #F7FAF7;
+        width: 650px;
+    }
+	
+	.issue{
+		border : 2px solid red;
+		color : red;
+	}
+	

@@ -1,0 +1,569 @@
+@media (min-width:1920px){
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    
+    header{
+        background-color: black;
+		text-align:center;
+		font-family: 'Righteous', cursive;
+    }
+  
+        
+        .logo{
+            width: 130px; 
+        }
+        
+        .logo_cont{
+            display: inline-block;
+        }
+        
+        .navegador{
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .navegador a{
+            text-decoration: none;
+            font-size: 150%;
+            color: black;
+            border-bottom: 3px solid grey;
+            margin-right: 50px;
+        }
+        
+        .navegador a:hover{
+            border-bottom: 3px solid green;
+        }
+    
+    body{
+        background-color: #b6d7a8;
+    }
+    
+    .banner_padre{
+        display: table;
+        width: 100%;
+        height: 830px;
+        background-image: url("../images/banner.png");
+    }
+    
+    .banner_hijo{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: white;
+        font-family: 'Righteous', cursive;
+        font-size: 380%;
+    }
+    
+    .galeria{
+        text-align:center;
+    }
+    
+    .foto{
+        margin:0px auto;
+        margin-top: 120px;
+    }
+    
+    .controlador{
+        width: 1280px;
+        margin:0px auto;
+    }
+    
+    .galeria .foto img{
+        -webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+    }
+    
+    .anterior{
+        margin-top: 30px;
+        float: left;
+    }
+    
+    .siguiente{
+        margin-top: 30px;
+        float: right;
+    }
+    
+    .back{
+        width: 50%;
+        height: 50%;
+    }
+    
+    .next{
+        width: 50%;
+        height: 50%;
+    }
+    
+    .info{
+        font-family: 'Righteous', cursive;
+        color: #365c23;
+        text-align: center;
+    }
+    
+    .telefono{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+    }
+    
+    .container_log{
+        text-align:center;
+        
+    }
+    
+    .login{
+        margin:30px auto;
+        padding-bottom: 20px;
+        border: 3px solid #365c23;
+        background-color: #F7FAF7;
+        width: 700px;
+    }
+    
+    form input{
+        font-family: 'Righteous', cursive;
+        border-radius: 15px; 
+        border: 1px solid #D4D4D4;
+        padding: 10px 5px;
+        margin-top: 10px;
+        font-size: 180%;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+	       -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+
+    }
+
+    form label{
+        font-size: 180%;
+        font-family: 'Righteous', cursive;
+        color: #365c23;
+    } 
+    
+    .iniciar_ses:hover{
+        background-color: aqua;
+    }  
+    
+    .registro{
+        text-align: center;
+    }
+    
+    .formas{
+        margin:30px auto;
+        padding-bottom: 20px;
+        border: 3px solid #365c23;
+        background-color: #F7FAF7;
+        width: 650px;
+    }
+    
+    .contenedor_per{
+        padding: 0px;
+        margin: 0px;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .menu_per{
+        width: 15%; 
+        height: 100vh; 
+        background-color: #365c23;
+        display: inline;
+        float: left;
+    }
+    
+    .menu_per ul li{
+        padding: 20px 0px;
+        padding-left: 10px;
+        border-bottom: 2px solid #b6d7a8;
+    }
+    
+    .menu_per ul li:hover{
+        border-right: 5px solid white;
+    }
+    
+    .menu_per ul a{
+        font-family: 'Righteous', cursive;
+        text-decoration: none;
+        color: white; 
+        font-size: 110%;
+    }
+    
+    
+    .info_perfil{
+        width: 85%; 
+        float: left; 
+        display: inline; 
+        height: 100vh; 
+        text-align: center;
+    }
+    
+    .datos{
+        background-color: #FFFFF6; 
+        width: 100%; 
+        height: 100%; 
+        text-align: left;
+        border-collapse: collapse;
+    }
+    
+    .datos td{
+        width: 50%;
+        font-family: 'Righteous', cursive;
+        color: black;
+        font-size: 150%;
+        padding-left: 10px;
+        border: 3px solid #365c23;
+        border-radius: 20px;
+    }
+    
+    .modificar{
+        float: right; margin-right: 20px;
+    }
+    
+    .modificar img{
+        width: 20px; height: 20px;
+    }
+
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width:1280px) and (max-width:1919px){
+   *{
+        margin: 0px;
+        padding: 0px;
+    }
+    header{
+        width: 100%; 
+        background-color: #FFFFF6;
+    }
+    
+    .logo{
+        width: 110px; 
+        height: 120px;
+        margin-left: 45px;
+    }
+    
+    .menu{
+        float: right;
+        margin-top: 45px;  
+    }
+    
+   .menu nav a{
+        font-family: 'Righteous', cursive;
+        color: black;
+        text-decoration:none;
+        margin-right: 60px;
+        font-size: 120%;
+    }
+    
+    .menu nav a:hover{
+        color: white;
+        padding: 10px 5px;
+        border-radius: 10px;
+        background-color: green;
+    }
+    
+    body{
+        background-color: #b6d7a8;
+    }
+    
+    .banner_padre{
+        display: table;
+        width: 100%;
+        height: 830px;
+        background-image: url("../images/banner.png");
+    }
+    
+    .banner_hijo{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: white;
+        font-family: 'Righteous', cursive;
+        font-size: 300%;
+    }
+    
+    .galeria{
+        text-align:center;
+    }
+    
+    .foto{
+        margin:0px auto;
+        margin-top: 50px;
+    }
+    
+    .controlador{
+        width: 1280px;
+        margin:0px auto;
+    }
+    
+    .anterior{
+        margin-top: 30px;
+        float: left;
+    }
+    
+    .siguiente{
+        margin-top: 30px;
+        float: right;
+    }
+    
+    .info{
+        margin-top: 100px;
+        font-family: 'Righteous', cursive;
+        color: #365c23;
+        text-align: center;
+    }
+    
+    .telefono{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+    }
+    
+    .container_log{
+        text-align:center;
+        
+    }
+    
+    .login{
+        margin:30px auto;
+        padding-bottom: 20px;
+        border: 3px solid #365c23;
+        background-color: #F7FAF7;
+        width: 700px;
+    }
+    
+    form input{
+        font-family: 'Righteous', cursive;
+        border-radius: 15px; 
+        border: 1px solid #D4D4D4;
+        padding: 10px 5px;
+        margin-top: 10px;
+        font-size: 180%;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+	       -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+
+    }
+
+    form label{
+        font-size: 180%;
+        font-family: 'Righteous', cursive;
+        color: #365c23;
+    } 
+    
+    .iniciar_ses:hover{
+        background-color: aqua;
+    }  
+    
+    .registro{
+        text-align: center;
+    }
+    
+    .formas{
+        margin:30px auto;
+        padding-bottom: 20px;
+        border: 3px solid #365c23;
+        background-color: #F7FAF7;
+        width: 650px;
+        
+    }
+    
+    .contenedor_per{
+        padding: 0px;
+        margin: 0px;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .menu_per{
+        width: 15%; 
+        height: 100vh; 
+        background-color: #365c23;
+        display: inline;
+        float: left;
+    }
+    
+    .menu_per ul li{
+        padding: 20px 0px;
+        padding-left: 10px;
+        border-bottom: 2px solid #b6d7a8;
+    }
+    
+    .menu_per ul li:hover{
+        border-right: 5px solid white;
+    }
+    
+    .menu_per ul a{
+        font-family: 'Righteous', cursive;
+        text-decoration: none;
+        color: white; 
+        font-size: 110%;
+    }
+    
+    
+    .info_perfil{
+        width: 85%; 
+        float: left; 
+        display: inline; 
+        height: 100vh; 
+        text-align: center;
+    }
+    
+    .datos{
+        background-color: #FFFFF6; 
+        width: 100%; 
+        height: 100%; 
+        text-align: left;
+        border-collapse: collapse;
+    }
+    
+    .datos td{
+        width: 50%;
+        font-family: 'Righteous', cursive;
+        color: black;
+        font-size: 150%;
+        padding-left: 10px;
+        border: 3px solid #365c23;
+        border-radius: 20px;
+    }
+    
+    .modificar{
+        float: right; margin-right: 20px;
+    }
+    
+    .modificar img{
+        width: 20px; height: 20px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+@media (max-width:1280px){
+       header{
+        width: 100%; 
+        left: 0; 
+        top: 0; 
+        position: fixed;
+        background-color: #FFFFF6;
+    }
+    
+    .logo{
+        width: 110px; 
+        height: 120px;
+        margin-left: 45px;
+    }
+    
+    .menu{
+        visibility: hidden;  
+    }
+    
+    body{
+        background-color: #b6d7a8;
+    }
+    
+    .galeria .foto img{
+        -webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+    }
+    
+    .container_log{
+        text-align:center;
+        
+    }
+    
+    .login{
+        margin:30px auto;
+        padding-bottom: 20px;
+        border: 3px solid #365c23;
+        background-color: #F7FAF7;
+        width: 700px;
+    }
+    
+    form input{
+        font-family: 'Righteous', cursive;
+        border-radius: 15px; 
+        border: 1px solid #D4D4D4;
+        padding: 10px 5px;
+        margin-top: 10px;
+        font-size: 180%;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+	       -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+
+    }
+
+    form label{
+        font-size: 180%;
+        font-family: 'Righteous', cursive;
+        color: #365c23;
+    } 
+    
+    .iniciar_ses:hover{
+        background-color: aqua;
+    }  
+    
+    .registro{
+        text-align: center;
+    }
+    
+    .formas{
+        margin:30px auto;
+        padding-bottom: 20px;
+        border: 3px solid #365c23;
+        background-color: #F7FAF7;
+        width: 650px;
+}
+    
+}

@@ -1,0 +1,127 @@
+-------------------------------------------------------------------------------------------------------------
+--Ejecutamos un procedimiento que realiza el borrado de tablas y de secuencias
+-------------------------------------------------------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE LIMPIADOR
+IS
+BEGIN
+------------------------------------------------------------
+--Borrado de tablas
+------------------------------------------------------------
+EXECUTE IMMEDIATE 'DROP TABLE PEDIDOS';
+EXECUTE IMMEDIATE 'DROP TABLE COMENTARIOS';
+EXECUTE IMMEDIATE 'DROP TABLE PLATO_SECUNDARIO';
+EXECUTE IMMEDIATE 'DROP TABLE PLATO_PRINCIPAL';
+EXECUTE IMMEDIATE 'DROP TABLE INGREDIENTES';
+EXECUTE IMMEDIATE 'DROP TABLE USUARIOS';
+EXECUTE IMMEDIATE 'DROP TABLE TIPO_PLATOS';
+EXECUTE IMMEDIATE 'DROP TABLE BEBIDAS';
+EXECUTE IMMEDIATE 'DROP TABLE SALSAS';
+EXECUTE IMMEDIATE 'DROP TABLE ALERGENOS';
+
+------------------------------------------------------------
+--Borrado de secuencias
+------------------------------------------------------------
+
+EXECUTE IMMEDIATE 'DROP SEQUENCE SEC_PLS';
+EXECUTE IMMEDIATE 'DROP SEQUENCE SEC_BEB';
+EXECUTE IMMEDIATE 'DROP SEQUENCE SEC_PED';
+EXECUTE IMMEDIATE 'DROP SEQUENCE SEC_USER';
+EXECUTE IMMEDIATE 'DROP SEQUENCE SEC_COM';
+
+
+END;
+/
+
+-------------------------------------------------------------------------------------------------------------
+--Ejecutamos un procedimiento que realiza el insertado de usuarios
+-------------------------------------------------------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE INSERTAR_USUARIO 
+  ( P_NICKNAME_USUARIO IN USUARIOS.NICKNAME_USUARIO%TYPE,
+	P_CONTRASENYA IN USUARIOS.CONTRASENYA%TYPE,
+    P_DNI IN USUARIOS.DNI%TYPE,
+	P_NOMBRE IN USUARIOS.NOMBRE%TYPE,
+	P_APELLIDOS IN USUARIOS.APELLIDOS%TYPE,
+	P_CORREO_ELECTRONICO IN USUARIOS.CORREO_ELECTRONICO%TYPE,
+	P_TELEFONO IN USUARIOS.TELEFONO%TYPE,
+	P_WHATSAPP IN USUARIOS.WHATSAPP%TYPE
+   ) IS
+BEGIN
+  INSERT INTO USUARIOS(ID_USUARIO,NICKNAME_USUARIO,CONTRASENYA,DNI,NOMBRE,APELLIDOS,CORREO_ELECTRONICO,TELEFONO,WHATSAPP)
+  VALUES ('1',P_NICKNAME_USUARIO,P_CONTRASENYA,P_DNI,P_NOMBRE,P_APELLIDOS,P_CORREO_ELECTRONICO,P_TELEFONO,P_WHATSAPP);
+END;
+
+/
+
+-------------------------------------------------------------------------------------------------------------
+--Ejecutamos un procedimiento que realiza el insertado de comentarios
+-------------------------------------------------------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE INSERTAR_COMENTARIO
+  (P_NICKNAME_USUARIO IN USUARIOS.NICKNAME_USUARIO%TYPE,
+   P_PUNTUACION IN COMENTARIOS.PUNTUACION%TYPE,
+   P_COMENTARIO IN COMENTARIOS.COMENTARIO%TYPE
+   ) IS
+BEGIN
+  INSERT INTO COMENTARIOS(ID_COMENTARIO,NICKNAME_USUARIO,PUNTUACION,COMENTARIO)
+  VALUES ('1',P_NICKNAME_USUARIO,P_PUNTUACION,P_COMENTARIO);
+END;
+/
+create or replace PROCEDURE MODIFICAR_NICK
+(V_ID_USUARIO IN usuarios.id_usuario%TYPE,
+V_NICK IN usuarios.nickname_usuario%TYPE) IS
+BEGIN
+  UPDATE USUARIOS SET nickname_usuario = v_nick
+  WHERE id_usuario = V_ID_USUARIO;
+END;
+/
+create or replace PROCEDURE MODIFICAR_CORREO
+(V_ID_USUARIO IN usuarios.id_usuario%TYPE,
+V_CORREO IN usuarios.correo_electronico%TYPE) IS
+BEGIN
+  UPDATE USUARIOS SET correo_electronico = v_correo
+  WHERE id_usuario = V_ID_USUARIO;
+END;
+/
+create or replace PROCEDURE MODIFICAR_TELEFONO
+(V_ID_USUARIO IN usuarios.id_usuario%TYPE,
+V_TELEFONO IN usuarios.telefono%TYPE) IS
+BEGIN
+  UPDATE USUARIOS SET telefono = v_telefono
+  WHERE id_usuario = V_ID_USUARIO;
+END;
+/
+create or replace PROCEDURE MODIFICAR_WHATSAPP
+(V_ID_USUARIO IN usuarios.id_usuario%TYPE,
+V_WHATSAPP IN usuarios.whatsapp%TYPE) IS
+BEGIN
+  UPDATE USUARIOS SET whatsapp = v_whatsapp
+  WHERE id_usuario = V_ID_USUARIO;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE INSERTAR_PEDIDO
+  (
+   P_ID_USUARIO IN PEDIDOS.ID_USUARIO%TYPE,
+   P_ID_PP IN pedidos.id_plato_principal%TYPE,
+   P_SALSA1_PP IN PEDIDOS.SALSA1_PP%TYPE,
+   P_SALSA2_PP IN PEDIDOS.SALSA2_PP%TYPE,
+   P_SALSA3_PP IN PEDIDOS.SALSA3_PP%TYPE,
+   P_ID_PC IN PEDIDOS.ID_PLATO_SECUNDARIO%TYPE,
+   P_SALSA1_PC IN PEDIDOS.SALSA1_PC%TYPE,
+   P_SALSA2_PC IN PEDIDOS.SALSA2_PC%TYPE,
+   P_SALSA3_PC IN PEDIDOS.SALSA3_PC%TYPE,
+   P_BEBIDA IN PEDIDOS.ID_BEBIDA%TYPE,
+   P_FECHA IN VARCHAR2,
+   P_PRECIO IN PEDIDOS.PRECIO%TYPE
+   ) IS
+BEGIN
+  INSERT INTO PEDIDOS(ID_PEDIDO,ID_USUARIO,ID_PLATO_PRINCIPAL,SALSA1_PP,SALSA2_PP,SALSA3_PP,ID_PLATO_SECUNDARIO,SALSA1_PC,SALSA2_PC,SALSA3_PC,ID_BEBIDA,pedidos.fecha_recogida,PRECIO)
+  VALUES ('1',P_ID_USUARIO,P_ID_PP,P_SALSA1_PP, P_SALSA2_PP, P_SALSA3_PP,P_ID_PC,P_SALSA1_PC, P_SALSA2_PC, P_SALSA3_PC,P_BEBIDA,TO_DATE(P_FECHA, 'YYYY-MM-DD HH24:MI:SS'),P_PRECIO);
+END;
+/
+CREATE OR REPLACE PROCEDURE ELIMINAR_PEDIDO
+  (
+   P_ID_PEDIDO IN PEDIDOS.ID_PEDIDO%TYPE
+   ) IS
+BEGIN
+  DELETE FROM PEDIDOS WHERE ID_PEDIDO = P_ID_PEDIDO;
+END;
